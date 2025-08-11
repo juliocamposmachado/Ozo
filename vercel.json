@@ -1,11 +1,19 @@
 {
   "version": 2,
   "outputDirectory": "frontend/build",
-  "functions": {
-    "api/*.js": {
-      "runtime": "nodejs18.x"
+  "builds": [
+    {
+      "src": "api/*.js",
+      "use": "@vercel/node@3.0.13"
+    },
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
     }
-  },
+  ],
   "routes": [
     {
       "src": "/api/(.*)",

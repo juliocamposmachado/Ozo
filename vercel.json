@@ -1,7 +1,25 @@
 {
+  "version": 2,
+  "outputDirectory": "frontend/build",
   "functions": {
-    "api/index.js": {
-      "maxDuration": 30
+    "api/*.js": {
+      "runtime": "nodejs18.x"
     }
-  }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|webp|mp4|webm|ogg|mp3|wav|flac|aac|pdf))",
+      "headers": {
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
 }

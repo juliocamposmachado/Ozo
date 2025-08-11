@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vercel dev",
     "build": "cd frontend && npm install && npm run build",
+    "vercel-build": "cd frontend && npm install && npm run build",
     "start": "node api/index.js",
     "install-all": "npm install --prefix backend && npm install --prefix frontend"
   },

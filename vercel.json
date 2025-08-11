@@ -1,42 +1,6 @@
 {
-  "version": 2,
-  "name": "ozo-whatsapp-clone",
-  "builds": [
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    },
-    {
-      "src": "backend/server.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "backend/server.js"
-    },
-    {
-      "src": "/socket.io/(.*)",
-      "dest": "backend/server.js"
-    },
-    {
-      "src": "/uploads/(.*)",
-      "dest": "backend/server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "frontend/build/index.html"
-    }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  },
   "functions": {
-    "backend/server.js": {
+    "api/index.js": {
       "maxDuration": 30
     }
   }
